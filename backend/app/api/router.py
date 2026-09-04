@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from app.api.endpoints import report, patient, health
+
+from app.api.endpoints import health, patient, report
 
 api_router = APIRouter()
 api_router.include_router(report.router, tags=["report"])

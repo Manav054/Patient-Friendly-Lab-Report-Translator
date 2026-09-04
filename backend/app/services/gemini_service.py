@@ -6,7 +6,9 @@ from google.genai import types
 from app.models import LabReportExtraction
 
 
-def analyze_lab_report_images(images_bytes: list[bytes], target_language: str = "English") -> LabReportExtraction:
+def analyze_lab_report_images(
+    images_bytes: list[bytes], target_language: str = "English"
+) -> LabReportExtraction:
     """
     Sends the images of the lab report to Gemini and extracts structured JSON.
     """
@@ -15,7 +17,7 @@ def analyze_lab_report_images(images_bytes: list[bytes], target_language: str = 
         raise ValueError("GEMINI_API_KEY environment variable is not set.")
 
     client = genai.Client(api_key=api_key)
-    
+
     prompt = f"""
     You are an expert clinical data extractor. Your task is to extract biomarker values from laboratory reports.
     Ignore and omit any Personally Identifiable Information (PII) such as names, addresses, or patient IDs.
@@ -28,18 +30,13 @@ def analyze_lab_report_images(images_bytes: list[bytes], target_language: str = 
     """
 
     contents = [prompt]
-    
+
     # Add all images to the contents
     for img_bytes in images_bytes:
-        contents.append(
-            types.Part.from_bytes(
-                data=img_bytes,
-                mime_type="image/png"
-            )
-        )
+        contents.append(types.Part.from_bytes(data=img_bytes, mime_type="image/png"))
 
     response = client.models.generate_content(
-        model='gemini-3.1-flash-lite',
+        model="gemini-3.1-flash-lite",
         contents=contents,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
@@ -50,8 +47,8 @@ def analyze_lab_report_images(images_bytes: list[bytes], target_language: str = 
 
     # The SDK parses it into the Pydantic model directly if response_schema is used,
     # wait, actually response.parsed contains the Pydantic object if response_schema is passed.
-    if hasattr(response, 'parsed') and response.parsed:
+    if hasattr(response, "parsed") and response.parsed:
         return response.parsed
-    
+
     # Fallback to json parsing if response.parsed isn't set (depends on SDK version)
     return LabReportExtraction.model_validate_json(response.text)

@@ -1,7 +1,9 @@
 from fastapi import APIRouter
+
 from app.services.storage_service import get_patient_reports
 
 router = APIRouter()
+
 
 @router.get("/patient/{patient_id}/reports")
 async def get_patient_historical_reports(patient_id: str):
