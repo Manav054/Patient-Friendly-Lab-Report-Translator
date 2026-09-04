@@ -3,6 +3,10 @@ node_modules/
 dist/
 dist-ssr/
 *.local
+.env.*.local
+.eslintcache
+coverage/
+.npm/
 
 # Python / Backend
 __pycache__/
@@ -13,6 +17,16 @@ env/
 venv/
 ENV/
 .env
+.pytest_cache/
+htmlcov/
+.tox/
+.ruff_cache/
+.mypy_cache/
+
+# Data
+backend/data/
+*.sqlite3
+*.db
 
 # OS / Environment
 .DS_Store
