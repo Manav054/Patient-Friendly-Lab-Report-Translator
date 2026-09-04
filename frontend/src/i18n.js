@@ -1,0 +1,398 @@
+import { createI18n } from 'vue-i18n'
+
+const messages = {
+  English: {
+    app: {
+      skipToMain: 'Skip to main content',
+      lab: 'Lab',
+      translator: 'Translator',
+      demystify: 'Demystify Your',
+      labTests: 'Lab Tests',
+      subtitle: 'Upload your complex lab reports and instantly get a plain-English, visual dashboard to understand exactly what your numbers mean.',
+      medicalDisclaimer: 'Medical Disclaimer',
+      disclaimerText: 'This application uses AI to help you understand your lab reports. It provides information, not medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding any medical condition.',
+      errorProcessing: 'Error processing report',
+      scanning: 'Scanning Document...',
+      extracting: 'Extracting medical markers and translating complex terminology using advanced AI.'
+    },
+    dashboard: {
+      results: 'Your Lab Results',
+      anonymized: 'Patient identifiers were securely anonymized before processing.',
+      uploadNew: 'Upload New Report',
+      questions: 'Questions for your Doctor',
+      lifestyle: 'Lifestyle & Wellness Suggestions',
+      lifestyleDisclaimer: 'Disclaimer: These are general suggestions and do not constitute medical advice.',
+      outOfRangeAttention: 'Out of Range (Requires Attention)',
+      outOfRange: 'Out of Range',
+      low: 'Low',
+      normal: 'Normal',
+      high: 'High',
+      whatDoesThisMean: 'What does this mean?',
+      normalRange: 'Normal Range',
+      shareReport: 'Share Report',
+      linkCopied: 'Link Copied!',
+      uploadYourOwn: 'Upload Your Own'
+    },
+    upload: {
+      clickOrDrag: 'Click or drag your lab report here',
+      supports: 'Supports high-resolution',
+      maxSize: 'Max 5MB',
+      selectFile: 'Select File',
+      invalidType: 'Invalid file type. Please upload a PDF, JPG, or PNG.',
+      sizeExceeded: 'File size exceeds the 5MB limit.',
+      timeout: 'The AI analysis took too long. Please try a smaller file or try again later.',
+      unexpected: 'An unexpected error occurred while communicating with the server.'
+    }
+  },
+  Spanish: {
+    app: {
+      skipToMain: 'Saltar al contenido principal',
+      lab: 'Lab',
+      translator: 'Translator',
+      demystify: 'Desmitifica tus',
+      labTests: 'Análisis de laboratorio',
+      subtitle: 'Sube tus complejos informes de laboratorio y obtén al instante un panel visual en lenguaje sencillo para entender exactamente qué significan tus resultados.',
+      medicalDisclaimer: 'Aviso Médico',
+      disclaimerText: 'Esta aplicación utiliza IA para ayudarte a entender tus informes de laboratorio. Proporciona información, no consejos médicos, diagnósticos ni tratamientos. Siempre busca el consejo de tu médico sobre cualquier afección.',
+      errorProcessing: 'Error al procesar el informe',
+      scanning: 'Escaneando documento...',
+      extracting: 'Extrayendo marcadores médicos y traduciendo terminología compleja mediante IA avanzada.'
+    },
+    dashboard: {
+      results: 'Tus resultados de laboratorio',
+      anonymized: 'Los identificadores del paciente se anonimizaron de forma segura antes del procesamiento.',
+      uploadNew: 'Subir nuevo informe',
+      questions: 'Preguntas para tu médico',
+      lifestyle: 'Sugerencias de estilo de vida y bienestar',
+      lifestyleDisclaimer: 'Aviso: Estas son sugerencias generales y no constituyen consejo médico.',
+      outOfRangeAttention: 'Fuera de rango (Requiere atención)',
+      outOfRange: 'Fuera de rango',
+      low: 'Bajo',
+      normal: 'Normal',
+      high: 'Alto',
+      whatDoesThisMean: '¿Qué significa esto?',
+      normalRange: 'Rango normal',
+      shareReport: 'Compartir informe',
+      linkCopied: '¡Enlace copiado!',
+      uploadYourOwn: 'Subir el tuyo'
+    },
+    upload: {
+      clickOrDrag: 'Haz clic o arrastra tu informe de laboratorio aquí',
+      supports: 'Soporta alta resolución',
+      maxSize: 'Máx. 5MB',
+      selectFile: 'Seleccionar archivo',
+      invalidType: 'Tipo de archivo inválido. Por favor sube un PDF, JPG o PNG.',
+      sizeExceeded: 'El tamaño del archivo excede el límite de 5MB.',
+      timeout: 'El análisis de IA tardó demasiado. Prueba con un archivo más pequeño o intenta de nuevo más tarde.',
+      unexpected: 'Ocurrió un error inesperado al comunicarse con el servidor.'
+    }
+  },
+  French: {
+    app: {
+      skipToMain: 'Passer au contenu principal',
+      lab: 'Labo',
+      translator: 'Traducteur',
+      demystify: 'Démystifiez vos',
+      labTests: 'Analyses de laboratoire',
+      subtitle: 'Téléchargez vos rapports de laboratoire complexes et obtenez instantanément un tableau de bord visuel en langage clair pour comprendre exactement ce que signifient vos résultats.',
+      medicalDisclaimer: 'Avis médical',
+      disclaimerText: 'Cette application utilise l\'IA pour vous aider à comprendre vos rapports de laboratoire. Elle fournit des informations, pas des conseils médicaux, des diagnostics ou des traitements. Demandez toujours l\'avis de votre médecin concernant toute condition médicale.',
+      errorProcessing: 'Erreur lors du traitement du rapport',
+      scanning: 'Analyse du document...',
+      extracting: 'Extraction des marqueurs médicaux et traduction de la terminologie complexe à l\'aide d\'une IA avancée.'
+    },
+    dashboard: {
+      results: 'Vos résultats de laboratoire',
+      anonymized: 'Les identifiants des patients ont été anonymisés en toute sécurité avant le traitement.',
+      uploadNew: 'Télécharger un nouveau rapport',
+      questions: 'Questions pour votre médecin',
+      lifestyle: 'Suggestions de mode de vie et de bien-être',
+      lifestyleDisclaimer: 'Avertissement : Il s\'agit de suggestions générales et ne constituent pas un avis médical.',
+      outOfRangeAttention: 'Hors normes (nécessite une attention particulière)',
+      outOfRange: 'Hors normes',
+      low: 'Bas',
+      normal: 'Normal',
+      high: 'Élevé',
+      whatDoesThisMean: 'Qu\'est-ce que cela signifie ?',
+      normalRange: 'Plage normale',
+      shareReport: 'Partager le rapport',
+      linkCopied: 'Lien copié !',
+      uploadYourOwn: 'Télécharger le vôtre'
+    },
+    upload: {
+      clickOrDrag: 'Cliquez ou glissez votre rapport de laboratoire ici',
+      supports: 'Prend en charge la haute résolution',
+      maxSize: 'Max 5Mo',
+      selectFile: 'Sélectionner un fichier',
+      invalidType: 'Type de fichier invalide. Veuillez télécharger un PDF, JPG ou PNG.',
+      sizeExceeded: 'La taille du fichier dépasse la limite de 5 Mo.',
+      timeout: 'L\'analyse par l\'IA a pris trop de temps. Veuillez essayer avec un fichier plus petit ou réessayer plus tard.',
+      unexpected: 'Une erreur inattendue s\'est produite lors de la communication avec le serveur.'
+    }
+  },
+  German: {
+    app: {
+      skipToMain: 'Zum Hauptinhalt springen',
+      lab: 'Labor',
+      translator: 'Übersetzer',
+      demystify: 'Entschlüsseln Sie Ihre',
+      labTests: 'Labortests',
+      subtitle: 'Laden Sie Ihre komplexen Laborberichte hoch und erhalten Sie sofort ein klares, visuelles Dashboard, um genau zu verstehen, was Ihre Werte bedeuten.',
+      medicalDisclaimer: 'Medizinischer Haftungsausschluss',
+      disclaimerText: 'Diese Anwendung nutzt KI, um Ihnen zu helfen, Ihre Laborberichte zu verstehen. Sie bietet Informationen, keine medizinische Beratung, Diagnose oder Behandlung. Holen Sie bei medizinischen Fragen immer den Rat Ihres Arztes ein.',
+      errorProcessing: 'Fehler bei der Verarbeitung des Berichts',
+      scanning: 'Dokument wird gescannt...',
+      extracting: 'Extrahieren medizinischer Marker und Übersetzen komplexer Terminologie mit fortschrittlicher KI.'
+    },
+    dashboard: {
+      results: 'Ihre Laborergebnisse',
+      anonymized: 'Patientendaten wurden vor der Verarbeitung sicher anonymisiert.',
+      uploadNew: 'Neuen Bericht hochladen',
+      questions: 'Fragen an Ihren Arzt',
+      lifestyle: 'Lebensstil- & Wellness-Vorschläge',
+      lifestyleDisclaimer: 'Haftungsausschluss: Dies sind allgemeine Vorschläge und stellen keine medizinische Beratung dar.',
+      outOfRangeAttention: 'Außerhalb des Bereichs (Aufmerksamkeit erforderlich)',
+      outOfRange: 'Außerhalb des Bereichs',
+      low: 'Niedrig',
+      normal: 'Normal',
+      high: 'Hoch',
+      whatDoesThisMean: 'Was bedeutet das?',
+      normalRange: 'Normalbereich',
+      shareReport: 'Bericht teilen',
+      linkCopied: 'Link kopiert!',
+      uploadYourOwn: 'Eigenen hochladen'
+    },
+    upload: {
+      clickOrDrag: 'Klicken oder ziehen Sie Ihren Laborbericht hierher',
+      supports: 'Unterstützt hohe Auflösung',
+      maxSize: 'Max. 5MB',
+      selectFile: 'Datei auswählen',
+      invalidType: 'Ungültiger Dateityp. Bitte laden Sie eine PDF-, JPG- oder PNG-Datei hoch.',
+      sizeExceeded: 'Die Dateigröße überschreitet das Limit von 5 MB.',
+      timeout: 'Die KI-Analyse hat zu lange gedauert. Bitte versuchen Sie es mit einer kleineren Datei oder später erneut.',
+      unexpected: 'Ein unerwarteter Fehler ist bei der Kommunikation mit dem Server aufgetreten.'
+    }
+  },
+  Italian: {
+    app: {
+      skipToMain: 'Passa al contenuto principale',
+      lab: 'Laboratorio',
+      translator: 'Traduttore',
+      demystify: 'Demistifica i tuoi',
+      labTests: 'Esami di Laboratorio',
+      subtitle: 'Carica i tuoi complessi referti di laboratorio e ottieni istantaneamente una dashboard visiva in un linguaggio semplice per capire esattamente cosa significano i tuoi valori.',
+      medicalDisclaimer: 'Dichiarazione di non responsabilità medica',
+      disclaimerText: 'Questa applicazione utilizza l\'intelligenza artificiale per aiutarti a comprendere i tuoi referti di laboratorio. Fornisce informazioni, non consigli medici, diagnosi o trattamenti. Chiedi sempre il parere del tuo medico per qualsiasi condizione medica.',
+      errorProcessing: 'Errore durante l\'elaborazione del referto',
+      scanning: 'Scansione del documento in corso...',
+      extracting: 'Estrazione dei marcatori medici e traduzione della terminologia complessa tramite intelligenza artificiale avanzata.'
+    },
+    dashboard: {
+      results: 'I tuoi Risultati di Laboratorio',
+      anonymized: 'Gli identificatori dei pazienti sono stati resi anonimi in modo sicuro prima dell\'elaborazione.',
+      uploadNew: 'Carica Nuovo Referto',
+      questions: 'Domande per il tuo Medico',
+      lifestyle: 'Suggerimenti per Stile di Vita e Benessere',
+      lifestyleDisclaimer: 'Disclaimer: Questi sono suggerimenti generali e non costituiscono un consiglio medico.',
+      outOfRangeAttention: 'Fuori intervallo (Richiede attenzione)',
+      outOfRange: 'Fuori intervallo',
+      low: 'Basso',
+      normal: 'Normale',
+      high: 'Alto',
+      whatDoesThisMean: 'Cosa significa questo?',
+      normalRange: 'Intervallo normale',
+      shareReport: 'Condividi referto',
+      linkCopied: 'Link copiato!',
+      uploadYourOwn: 'Carica il tuo'
+    },
+    upload: {
+      clickOrDrag: 'Clicca o trascina qui il tuo referto di laboratorio',
+      supports: 'Supporta l\'alta risoluzione',
+      maxSize: 'Max 5MB',
+      selectFile: 'Seleziona File',
+      invalidType: 'Tipo di file non valido. Si prega di caricare un PDF, JPG o PNG.',
+      sizeExceeded: 'La dimensione del file supera il limite di 5MB.',
+      timeout: 'L\'analisi dell\'intelligenza artificiale ha richiesto troppo tempo. Riprova con un file più piccolo o riprova più tardi.',
+      unexpected: 'Si è verificato un errore imprevisto durante la comunicazione con il server.'
+    }
+  },
+  Portuguese: {
+    app: {
+      skipToMain: 'Pular para o conteúdo principal',
+      lab: 'Laboratório',
+      translator: 'Tradutor',
+      demystify: 'Desmistifique seus',
+      labTests: 'Exames de Laboratório',
+      subtitle: 'Faça upload dos seus complexos laudos laboratoriais e obtenha instantaneamente um painel visual em linguagem simples para entender exatamente o que seus números significam.',
+      medicalDisclaimer: 'Aviso Médico',
+      disclaimerText: 'Este aplicativo usa IA para ajudá-lo a entender seus laudos de laboratório. Ele fornece informações, não aconselhamento médico, diagnóstico ou tratamento. Procure sempre o conselho do seu médico em relação a qualquer condição médica.',
+      errorProcessing: 'Erro ao processar o relatório',
+      scanning: 'Analisando o documento...',
+      extracting: 'Extraindo marcadores médicos e traduzindo terminologia complexa usando IA avançada.'
+    },
+    dashboard: {
+      results: 'Seus Resultados de Laboratório',
+      anonymized: 'Os identificadores dos pacientes foram anonimizados com segurança antes do processamento.',
+      uploadNew: 'Enviar Novo Relatório',
+      questions: 'Perguntas para o seu Médico',
+      lifestyle: 'Sugestões de Estilo de Vida e Bem-Estar',
+      lifestyleDisclaimer: 'Aviso legal: Estas são sugestões gerais e não constituem aconselhamento médico.',
+      outOfRangeAttention: 'Fora do intervalo (Requer atenção)',
+      outOfRange: 'Fora do intervalo',
+      low: 'Baixo',
+      normal: 'Normal',
+      high: 'Alto',
+      whatDoesThisMean: 'O que isso significa?',
+      normalRange: 'Intervalo normal',
+      shareReport: 'Compartilhar relatório',
+      linkCopied: 'Link copiado!',
+      uploadYourOwn: 'Envie o seu'
+    },
+    upload: {
+      clickOrDrag: 'Clique ou arraste o seu laudo de laboratório para cá',
+      supports: 'Suporta alta resolução',
+      maxSize: 'Max 5MB',
+      selectFile: 'Selecionar Arquivo',
+      invalidType: 'Tipo de arquivo inválido. Por favor, envie um PDF, JPG ou PNG.',
+      sizeExceeded: 'O tamanho do arquivo excede o limite de 5 MB.',
+      timeout: 'A análise da IA demorou muito. Tente um arquivo menor ou tente novamente mais tarde.',
+      unexpected: 'Ocorreu um erro inesperado ao comunicar com o servidor.'
+    }
+  },
+  Hindi: {
+    app: {
+      skipToMain: 'मुख्य सामग्री पर जाएँ',
+      lab: 'लैब',
+      translator: 'अनुवादक',
+      demystify: 'अपने लैब टेस्ट',
+      labTests: 'को समझें',
+      subtitle: 'अपनी जटिल लैब रिपोर्ट अपलोड करें और अपने परिणामों का सटीक अर्थ समझने के लिए तुरंत एक सरल और विज़ुअल डैशबोर्ड प्राप्त करें।',
+      medicalDisclaimer: 'चिकित्सा अस्वीकरण',
+      disclaimerText: 'यह एप्लिकेशन आपकी लैब रिपोर्ट समझने में मदद करने के लिए AI का उपयोग करता है। यह जानकारी प्रदान करता है, कोई चिकित्सा सलाह, निदान या उपचार नहीं। किसी भी चिकित्सीय स्थिति के संबंध में हमेशा अपने डॉक्टर से सलाह लें।',
+      errorProcessing: 'रिपोर्ट प्रोसेस करने में त्रुटि',
+      scanning: 'दस्तावेज़ स्कैन किया जा रहा है...',
+      extracting: 'मेडिकल मार्कर निकाले जा रहे हैं और उन्नत AI का उपयोग करके जटिल शब्दावली का अनुवाद किया जा रहा है.'
+    },
+    dashboard: {
+      results: 'आपके लैब परिणाम',
+      anonymized: 'प्रसंस्करण से पहले रोगी की पहचान सुरक्षित रूप से हटा दी गई थी।',
+      uploadNew: 'नई रिपोर्ट अपलोड करें',
+      questions: 'आपके डॉक्टर के लिए प्रश्न',
+      lifestyle: 'जीवनशैली और स्वास्थ्य सुझाव',
+      lifestyleDisclaimer: 'अस्वीकरण: ये सामान्य सुझाव हैं और कोई चिकित्सा सलाह नहीं हैं।',
+      outOfRangeAttention: 'सामान्य सीमा से बाहर (ध्यान देने की आवश्यकता है)',
+      outOfRange: 'सामान्य सीमा से बाहर',
+      low: 'कम',
+      normal: 'सामान्य',
+      high: 'अधिक',
+      whatDoesThisMean: 'इसका क्या मतलब है?',
+      normalRange: 'सामान्य सीमा',
+      shareReport: 'रिपोर्ट साझा करें',
+      linkCopied: 'लिंक कॉपी हो गया!',
+      uploadYourOwn: 'अपना अपलोड करें'
+    },
+    upload: {
+      clickOrDrag: 'अपनी लैब रिपोर्ट को यहाँ क्लिक करें या खींचें',
+      supports: 'उच्च रिज़ॉल्यूशन का समर्थन करता है',
+      maxSize: 'अधिकतम 5MB',
+      selectFile: 'फ़ाइल चुनें',
+      invalidType: 'अमान्य फ़ाइल प्रकार। कृपया PDF, JPG, या PNG अपलोड करें।',
+      sizeExceeded: 'फ़ाइल का आकार 5MB की सीमा से अधिक है।',
+      timeout: 'AI विश्लेषण में बहुत अधिक समय लगा। कृपया एक छोटी फ़ाइल का प्रयास करें या बाद में फिर से प्रयास करें।',
+      unexpected: 'सर्वर के साथ संचार करते समय एक अप्रत्याशित त्रुटि हुई।'
+    }
+  },
+  'Chinese (Simplified)': {
+    app: {
+      skipToMain: '跳至主要内容',
+      lab: '检验报告',
+      translator: '翻译工具',
+      demystify: '解读您的',
+      labTests: '检验报告',
+      subtitle: '上传您复杂的检验报告，即刻获得简单易懂的直观仪表板，帮助您准确了解指标的含义。',
+      medicalDisclaimer: '医疗免责声明',
+      disclaimerText: '此应用程序使用人工智能帮助您理解检验报告。它提供信息，而不是医疗建议、诊断或治疗。关于任何健康状况，请始终寻求医生的建议。',
+      errorProcessing: '处理报告时出错',
+      scanning: '正在扫描文件...',
+      extracting: '正在使用先进的人工智能提取医疗指标并翻译复杂的术语。'
+    },
+    dashboard: {
+      results: '您的检验结果',
+      anonymized: '患者身份信息在处理前已安全匿名化。',
+      uploadNew: '上传新报告',
+      questions: '向医生提问的问题',
+      lifestyle: '生活方式与健康建议',
+      lifestyleDisclaimer: '免责声明：这些是一般性建议，不构成医疗建议。',
+      outOfRangeAttention: '超出正常范围（需要关注）',
+      outOfRange: '超出正常范围',
+      low: '偏低',
+      normal: '正常',
+      high: '偏高',
+      whatDoesThisMean: '这是什么意思？',
+      normalRange: '正常范围',
+      shareReport: '分享报告',
+      linkCopied: '链接已复制！',
+      uploadYourOwn: '上传您自己的'
+    },
+    upload: {
+      clickOrDrag: '点击或拖拽您的检验报告到这里',
+      supports: '支持高分辨率',
+      maxSize: '最大 5MB',
+      selectFile: '选择文件',
+      invalidType: '文件类型无效。请上传 PDF、JPG 或 PNG 文件。',
+      sizeExceeded: '文件大小超出 5MB 限制。',
+      timeout: 'AI 分析时间过长。请尝试较小的文件或稍后再试。',
+      unexpected: '与服务器通信时发生意外错误。'
+    }
+  },
+  Japanese: {
+    app: {
+      skipToMain: 'メインコンテンツへスキップ',
+      lab: '検査結果',
+      translator: '翻訳ツール',
+      demystify: 'あなたの',
+      labTests: '検査結果を分かりやすく',
+      subtitle: '複雑な検査結果をアップロードすると、専門用語をわかりやすく解説した視覚的なダッシュボードを即座に提供し、数値の意味を正確に理解できます。',
+      medicalDisclaimer: '医療に関する免責事項',
+      disclaimerText: 'このアプリケーションはAIを使用して、検査結果の理解をサポートします。これは情報提供を目的としており、医学的アドバイス、診断、治療を提供するものではありません。健康状態については、常に医師にご相談ください。',
+      errorProcessing: 'レポートの処理中にエラーが発生しました',
+      scanning: 'ドキュメントをスキャンしています...',
+      extracting: '高度なAIを使用して、医療マーカーを抽出し、複雑な専門用語を翻訳しています。'
+    },
+    dashboard: {
+      results: 'あなたの検査結果',
+      anonymized: '患者の識別情報は、処理前に安全に匿名化されました。',
+      uploadNew: '新しいレポートをアップロード',
+      questions: '医師への質問',
+      lifestyle: 'ライフスタイルと健康に関する提案',
+      lifestyleDisclaimer: '免責事項：これらは一般的な提案であり、医学的アドバイスを構成するものではありません。',
+      outOfRangeAttention: '範囲外（要注意）',
+      outOfRange: '範囲外',
+      low: '低い',
+      normal: '正常',
+      high: '高い',
+      whatDoesThisMean: 'これはどういう意味ですか？',
+      normalRange: '正常範囲',
+      shareReport: 'レポートを共有',
+      linkCopied: 'リンクをコピーしました！',
+      uploadYourOwn: '自分のものをアップロード'
+    },
+    upload: {
+      clickOrDrag: 'ここをクリックするか、検査結果をドラッグしてください',
+      supports: '高解像度対応',
+      maxSize: '最大 5MB',
+      selectFile: 'ファイルを選択',
+      invalidType: '無効なファイル形式です。PDF、JPG、またはPNGをアップロードしてください。',
+      sizeExceeded: 'ファイルサイズが5MBの制限を超えています。',
+      timeout: 'AIの分析に時間がかかりすぎています。小さなファイルを使用するか、後でもう一度お試しください。',
+      unexpected: 'サーバーとの通信中に予期しないエラーが発生しました。'
+    }
+  }
+}
+
+export const i18n = createI18n({
+  legacy: false,
+  locale: 'English', // default language
+  fallbackLocale: 'English',
+  messages,
+})

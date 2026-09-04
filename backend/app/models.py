@@ -1,5 +1,6 @@
+
 from pydantic import BaseModel, Field
-from typing import List
+
 
 class TestResult(BaseModel):
     marker_name: str = Field(..., description="The name of the test or biomarker (e.g., Hemoglobin, LDL Cholesterol).")
@@ -12,5 +13,6 @@ class TestResult(BaseModel):
 
 class LabReportExtraction(BaseModel):
     patient_identifiers_found: bool = Field(..., description="True if any Personally Identifiable Information (PII) was detected and omitted.")
-    tests: List[TestResult] = Field(..., description="List of extracted test results.")
-    suggested_physician_questions: List[str] = Field(..., description="2-3 specific questions the patient should ask their doctor based on the results, particularly focusing on any abnormal values.")
+    tests: list[TestResult] = Field(..., description="List of extracted test results.")
+    suggested_physician_questions: list[str] = Field(..., description="2-3 specific questions the patient should ask their doctor based on the results, particularly focusing on any abnormal values.")
+    lifestyle_recommendations: list[str] = Field(..., description="3-5 general, non-diagnostic lifestyle, dietary, or wellness tips based on the results. Must include a disclaimer that this is not medical advice.")
