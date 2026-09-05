@@ -6,7 +6,7 @@ router = APIRouter()
 
 
 @router.get("/patient/{patient_id}/reports")
-async def get_patient_historical_reports(patient_id: str):
+def get_patient_historical_reports(patient_id: str):
     """
     Endpoint to fetch all historical reports for a given patient.
     """

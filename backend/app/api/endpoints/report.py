@@ -8,7 +8,7 @@ router = APIRouter()
 
 
 @router.post("/analyze-report")
-async def analyze_report(
+def analyze_report(
     file: UploadFile = File(...),
     target_language: str = Query(
         "English", description="Target language for translation"
@@ -53,7 +53,7 @@ async def analyze_report(
 
 
 @router.get("/report/{report_id}")
-async def get_shared_report(report_id: str):
+def get_shared_report(report_id: str):
     """
     Endpoint to fetch a previously analyzed report by its UUID.
     """
