@@ -65,6 +65,11 @@ export function useReports(patientId) {
     activeView.value = 'results'
   }
 
+  const clearCurrentReport = () => {
+    labData.value = null
+    // We do NOT clear patientHistory here so the calendar keeps its markers
+  }
+
   const clearData = () => {
     labData.value = null
     patientHistory.value = []
@@ -85,6 +90,7 @@ export function useReports(patientId) {
     handleUploadStart,
     handleUploadError,
     selectReport,
+    clearCurrentReport,
     clearData
   }
 }

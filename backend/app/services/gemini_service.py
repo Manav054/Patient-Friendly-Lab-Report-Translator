@@ -21,12 +21,15 @@ def analyze_lab_report_images(
     prompt = f"""
     You are an expert clinical data extractor. Your task is to extract biomarker values from laboratory reports.
     Ignore and omit any Personally Identifiable Information (PII) such as names, addresses, or patient IDs.
+    IMPORTANT: You MUST extract EVERY SINGLE test/biomarker result present in the report. Do not skip, group, or summarize any tests. Be exhaustive.
+    Also, find the date the report was generated or the sample was collected.
     Extract the tests, their values, units, and reference ranges.
     Determine if the test is abnormal based on the reference range.
     Provide a 1-2 sentence layman explanation for each marker.
+    Provide a 2-3 sentence overall summary of the patient's health status based on all the results.
     Provide 2-3 suggested questions for the patient to ask their doctor.
     Also provide 3-5 general, non-diagnostic lifestyle, dietary, or wellness tips based on the results, especially focusing on abnormal markers. Include a disclaimer that this is not medical advice.
-    IMPORTANT: The text for layman_explanation, suggested_physician_questions, and lifestyle_recommendations MUST be in {target_language}.
+    IMPORTANT: The text for overall_summary, layman_explanation, suggested_physician_questions, and lifestyle_recommendations MUST be in {target_language}.
     """
 
     contents = [prompt]

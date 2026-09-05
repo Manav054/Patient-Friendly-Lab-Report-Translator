@@ -12,8 +12,15 @@ const messages = {
       medicalDisclaimer: 'Medical Disclaimer',
       disclaimerText: 'This application uses AI to help you understand your lab reports. It provides information, not medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding any medical condition.',
       errorProcessing: 'Error processing report',
-      scanning: 'Scanning Document...',
-      extracting: 'Extracting medical markers and translating complex terminology using advanced AI.'
+      extracting: 'Extracting medical markers and translating complex terminology using advanced AI.',
+      previousReports: 'Previous Reports',
+      trends: 'Trends',
+      logout: 'Logout',
+      calendarSubtitle: 'Select a highlighted date to view your past results.',
+      historicalTrends: 'Historical Trends',
+      trendsSubtitle: 'Track your biomarkers over time.',
+      noTrends: 'No historical trends available yet.',
+      noTrendsSub: 'Upload more reports over time to see your progress.'
     },
     dashboard: {
       results: 'Your Lab Results',
@@ -49,6 +56,20 @@ const messages = {
       sizeExceeded: 'File size exceeds the 5MB limit.',
       timeout: 'The AI analysis took too long. Please try a smaller file or try again later.',
       unexpected: 'An unexpected error occurred while communicating with the server.'
+    },
+    login: {
+      welcomeTo: 'Welcome to',
+      labTranslator: 'LabTranslator',
+      subtitle: 'Securely analyze your lab reports, track your health trends over time, and easily share insights with your doctor.',
+      terms: 'By continuing, you agree to our Terms of Service and Privacy Policy.'
+    },
+    loading: {
+      step1: 'Scanning document...',
+      step2: 'Identifying clinical markers...',
+      step3: 'Translating medical terminology...',
+      step4: 'Analyzing reference ranges...',
+      step5: 'Generating your plain-English dashboard...',
+      pleaseWait: 'This usually takes 10-15 seconds. Please do not close the window.'
     }
   },
   Spanish: {
@@ -62,8 +83,15 @@ const messages = {
       medicalDisclaimer: 'Aviso Médico',
       disclaimerText: 'Esta aplicación utiliza IA para ayudarte a entender tus informes de laboratorio. Proporciona información, no consejos médicos, diagnósticos ni tratamientos. Siempre busca el consejo de tu médico sobre cualquier afección.',
       errorProcessing: 'Error al procesar el informe',
-      scanning: 'Escaneando documento...',
-      extracting: 'Extrayendo marcadores médicos y traduciendo terminología compleja mediante IA avanzada.'
+      extracting: 'Extrayendo marcadores médicos y traduciendo terminología compleja mediante IA avanzada.',
+      previousReports: 'Informes anteriores',
+      trends: 'Tendencias',
+      logout: 'Cerrar sesión',
+      calendarSubtitle: 'Selecciona una fecha resaltada para ver tus resultados anteriores.',
+      historicalTrends: 'Tendencias históricas',
+      trendsSubtitle: 'Rastrea tus biomarcadores a lo largo del tiempo.',
+      noTrends: 'Aún no hay tendencias históricas disponibles.',
+      noTrendsSub: 'Sube más informes a lo largo del tiempo para ver tu progreso.'
     },
     dashboard: {
       results: 'Tus resultados de laboratorio',
@@ -99,6 +127,20 @@ const messages = {
       sizeExceeded: 'El tamaño del archivo excede el límite de 5MB.',
       timeout: 'El análisis de IA tardó demasiado. Prueba con un archivo más pequeño o intenta de nuevo más tarde.',
       unexpected: 'Ocurrió un error inesperado al comunicarse con el servidor.'
+    },
+    login: {
+      welcomeTo: 'Bienvenido a',
+      labTranslator: 'LabTranslator',
+      subtitle: 'Analice de forma segura sus informes de laboratorio, siga sus tendencias de salud a lo largo del tiempo y comparta fácilmente la información con su médico.',
+      terms: 'Al continuar, acepta nuestros Términos de Servicio y Política de Privacidad.'
+    },
+    loading: {
+      step1: 'Escaneando documento...',
+      step2: 'Identificando marcadores clínicos...',
+      step3: 'Traduciendo terminología médica...',
+      step4: 'Analizando rangos de referencia...',
+      step5: 'Generando su panel de control en lenguaje sencillo...',
+      pleaseWait: 'Esto suele tardar entre 10 y 15 segundos. Por favor, no cierre la ventana.'
     }
   },
   French: {
@@ -112,8 +154,15 @@ const messages = {
       medicalDisclaimer: 'Avis médical',
       disclaimerText: 'Cette application utilise l\'IA pour vous aider à comprendre vos rapports de laboratoire. Elle fournit des informations, pas des conseils médicaux, des diagnostics ou des traitements. Demandez toujours l\'avis de votre médecin concernant toute condition médicale.',
       errorProcessing: 'Erreur lors du traitement du rapport',
-      scanning: 'Analyse du document...',
-      extracting: 'Extraction des marqueurs médicaux et traduction de la terminologie complexe à l\'aide d\'une IA avancée.'
+      extracting: 'Extraction des marqueurs médicaux et traduction de la terminologie complexe à l\'aide d\'une IA avancée.',
+      previousReports: 'Rapports précédents',
+      trends: 'Tendances',
+      logout: 'Déconnexion',
+      calendarSubtitle: 'Sélectionnez une date en surbrillance pour voir vos résultats passés.',
+      historicalTrends: 'Tendances historiques',
+      trendsSubtitle: 'Suivez vos biomarqueurs au fil du temps.',
+      noTrends: 'Aucune tendance historique disponible pour le moment.',
+      noTrendsSub: 'Téléchargez plus de rapports au fil du temps pour voir vos progrès.'
     },
     dashboard: {
       results: 'Vos résultats de laboratoire',
@@ -149,6 +198,20 @@ const messages = {
       sizeExceeded: 'La taille du fichier dépasse la limite de 5 Mo.',
       timeout: 'L\'analyse par l\'IA a pris trop de temps. Veuillez essayer avec un fichier plus petit ou réessayer plus tard.',
       unexpected: 'Une erreur inattendue s\'est produite lors de la communication avec le serveur.'
+    },
+    login: {
+      welcomeTo: 'Bienvenue sur',
+      labTranslator: 'LabTranslator',
+      subtitle: 'Analysez en toute sécurité vos rapports de laboratoire, suivez vos tendances de santé au fil du temps et partagez facilement les informations avec votre médecin.',
+      terms: 'En continuant, vous acceptez nos Conditions d\'utilisation et notre Politique de confidentialité.'
+    },
+    loading: {
+      step1: 'Numérisation du document...',
+      step2: 'Identification des marqueurs cliniques...',
+      step3: 'Traduction de la terminologie médicale...',
+      step4: 'Analyse des plages de référence...',
+      step5: 'Génération de votre tableau de bord en langage simple...',
+      pleaseWait: 'Cela prend généralement 10 à 15 secondes. Veuillez ne pas fermer la fenêtre.'
     }
   },
   German: {
@@ -162,8 +225,15 @@ const messages = {
       medicalDisclaimer: 'Medizinischer Haftungsausschluss',
       disclaimerText: 'Diese Anwendung nutzt KI, um Ihnen zu helfen, Ihre Laborberichte zu verstehen. Sie bietet Informationen, keine medizinische Beratung, Diagnose oder Behandlung. Holen Sie bei medizinischen Fragen immer den Rat Ihres Arztes ein.',
       errorProcessing: 'Fehler bei der Verarbeitung des Berichts',
-      scanning: 'Dokument wird gescannt...',
-      extracting: 'Extrahieren medizinischer Marker und Übersetzen komplexer Terminologie mit fortschrittlicher KI.'
+      extracting: 'Extrahieren medizinischer Marker und Übersetzen komplexer Terminologie mit fortschrittlicher KI.',
+      previousReports: 'Vorherige Berichte',
+      trends: 'Trends',
+      logout: 'Abmelden',
+      calendarSubtitle: 'Wählen Sie ein markiertes Datum, um Ihre vergangenen Ergebnisse anzuzeigen.',
+      historicalTrends: 'Historische Trends',
+      trendsSubtitle: 'Verfolgen Sie Ihre Biomarker im Laufe der Zeit.',
+      noTrends: 'Noch keine historischen Trends verfügbar.',
+      noTrendsSub: 'Laden Sie im Laufe der Zeit weitere Berichte hoch, um Ihren Fortschritt zu sehen.'
     },
     dashboard: {
       results: 'Ihre Laborergebnisse',
@@ -199,6 +269,20 @@ const messages = {
       sizeExceeded: 'Die Dateigröße überschreitet das Limit von 5 MB.',
       timeout: 'Die KI-Analyse hat zu lange gedauert. Bitte versuchen Sie es mit einer kleineren Datei oder später erneut.',
       unexpected: 'Ein unerwarteter Fehler ist bei der Kommunikation mit dem Server aufgetreten.'
+    },
+    login: {
+      welcomeTo: 'Willkommen bei',
+      labTranslator: 'LabTranslator',
+      subtitle: 'Analysieren Sie Ihre Laborberichte sicher, verfolgen Sie Ihre Gesundheitstrends im Laufe der Zeit und teilen Sie Erkenntnisse ganz einfach mit Ihrem Arzt.',
+      terms: 'Indem Sie fortfahren, stimmen Sie unseren Nutzungsbedingungen und Datenschutzrichtlinien zu.'
+    },
+    loading: {
+      step1: 'Dokument scannen...',
+      step2: 'Klinische Marker identifizieren...',
+      step3: 'Medizinische Terminologie übersetzen...',
+      step4: 'Referenzbereiche analysieren...',
+      step5: 'Erstelle Ihr leicht verständliches Dashboard...',
+      pleaseWait: 'Dies dauert normalerweise 10-15 Sekunden. Bitte schließen Sie das Fenster nicht.'
     }
   },
   Italian: {
@@ -212,8 +296,15 @@ const messages = {
       medicalDisclaimer: 'Dichiarazione di non responsabilità medica',
       disclaimerText: 'Questa applicazione utilizza l\'intelligenza artificiale per aiutarti a comprendere i tuoi referti di laboratorio. Fornisce informazioni, non consigli medici, diagnosi o trattamenti. Chiedi sempre il parere del tuo medico per qualsiasi condizione medica.',
       errorProcessing: 'Errore durante l\'elaborazione del referto',
-      scanning: 'Scansione del documento in corso...',
-      extracting: 'Estrazione dei marcatori medici e traduzione della terminologia complessa tramite intelligenza artificiale avanzata.'
+      extracting: 'Estrazione dei marcatori medici e traduzione della terminologia complessa tramite intelligenza artificiale avanzata.',
+      previousReports: 'Referti precedenti',
+      trends: 'Tendenze',
+      logout: 'Esci',
+      calendarSubtitle: 'Seleziona una data evidenziata per visualizzare i risultati passati.',
+      historicalTrends: 'Tendenze storiche',
+      trendsSubtitle: 'Tieni traccia dei tuoi biomarcatori nel tempo.',
+      noTrends: 'Nessuna tendenza storica ancora disponibile.',
+      noTrendsSub: 'Carica più referti nel tempo per vedere i tuoi progressi.'
     },
     dashboard: {
       results: 'I tuoi Risultati di Laboratorio',
@@ -249,6 +340,20 @@ const messages = {
       sizeExceeded: 'La dimensione del file supera il limite di 5MB.',
       timeout: 'L\'analisi dell\'intelligenza artificiale ha richiesto troppo tempo. Riprova con un file più piccolo o riprova più tardi.',
       unexpected: 'Si è verificato un errore imprevisto durante la comunicazione con il server.'
+    },
+    login: {
+      welcomeTo: 'Benvenuto su',
+      labTranslator: 'LabTranslator',
+      subtitle: 'Analizza in modo sicuro i tuoi referti di laboratorio, monitora le tendenze della tua salute nel tempo e condividi facilmente le informazioni con il tuo medico.',
+      terms: 'Continuando, accetti i nostri Termini di Servizio e l\'Informativa sulla Privacy.'
+    },
+    loading: {
+      step1: 'Scansione del documento...',
+      step2: 'Identificazione dei marcatori clinici...',
+      step3: 'Traduzione della terminologia medica...',
+      step4: 'Analisi degli intervalli di riferimento...',
+      step5: 'Generazione della tua dashboard in parole semplici...',
+      pleaseWait: 'Di solito ci vogliono 10-15 secondi. Per favore, non chiudere la finestra.'
     }
   },
   Portuguese: {
@@ -262,8 +367,15 @@ const messages = {
       medicalDisclaimer: 'Aviso Médico',
       disclaimerText: 'Este aplicativo usa IA para ajudá-lo a entender seus laudos de laboratório. Ele fornece informações, não aconselhamento médico, diagnóstico ou tratamento. Procure sempre o conselho do seu médico em relação a qualquer condição médica.',
       errorProcessing: 'Erro ao processar o relatório',
-      scanning: 'Analisando o documento...',
-      extracting: 'Extraindo marcadores médicos e traduzindo terminologia complexa usando IA avançada.'
+      extracting: 'Extraindo marcadores médicos e traduzindo terminologia complexa usando IA avançada.',
+      previousReports: 'Relatórios Anteriores',
+      trends: 'Tendências',
+      logout: 'Sair',
+      calendarSubtitle: 'Selecione uma data destacada para ver seus resultados anteriores.',
+      historicalTrends: 'Tendências Históricas',
+      trendsSubtitle: 'Acompanhe seus biomarcadores ao longo do tempo.',
+      noTrends: 'Nenhuma tendência histórica disponível ainda.',
+      noTrendsSub: 'Envie mais relatórios ao longo do tempo para ver seu progresso.'
     },
     dashboard: {
       results: 'Seus Resultados de Laboratório',
@@ -312,8 +424,15 @@ const messages = {
       medicalDisclaimer: 'चिकित्सा अस्वीकरण',
       disclaimerText: 'यह एप्लिकेशन आपकी लैब रिपोर्ट समझने में मदद करने के लिए AI का उपयोग करता है। यह जानकारी प्रदान करता है, कोई चिकित्सा सलाह, निदान या उपचार नहीं। किसी भी चिकित्सीय स्थिति के संबंध में हमेशा अपने डॉक्टर से सलाह लें।',
       errorProcessing: 'रिपोर्ट प्रोसेस करने में त्रुटि',
-      scanning: 'दस्तावेज़ स्कैन किया जा रहा है...',
-      extracting: 'मेडिकल मार्कर निकाले जा रहे हैं और उन्नत AI का उपयोग करके जटिल शब्दावली का अनुवाद किया जा रहा है.'
+      extracting: 'मेडिकल मार्कर निकाले जा रहे हैं और उन्नत AI का उपयोग करके जटिल शब्दावली का अनुवाद किया जा रहा है.',
+      previousReports: 'पिछली रिपोर्टें',
+      trends: 'रुझान',
+      logout: 'लॉग आउट',
+      calendarSubtitle: 'अपने पिछले परिणाम देखने के लिए एक हाइलाइट की गई तारीख चुनें।',
+      historicalTrends: 'ऐतिहासिक रुझान',
+      trendsSubtitle: 'समय के साथ अपने बायोमार्कर को ट्रैक करें।',
+      noTrends: 'अभी तक कोई ऐतिहासिक रुझान उपलब्ध नहीं है।',
+      noTrendsSub: 'अपनी प्रगति देखने के लिए समय-समय पर अधिक रिपोर्ट अपलोड करें।'
     },
     dashboard: {
       results: 'आपके लैब परिणाम',
@@ -349,6 +468,20 @@ const messages = {
       sizeExceeded: 'फ़ाइल का आकार 5MB की सीमा से अधिक है।',
       timeout: 'AI विश्लेषण में बहुत अधिक समय लगा। कृपया एक छोटी फ़ाइल का प्रयास करें या बाद में फिर से प्रयास करें।',
       unexpected: 'सर्वर के साथ संचार करते समय एक अप्रत्याशित त्रुटि हुई।'
+    },
+    login: {
+      welcomeTo: 'में आपका स्वागत है',
+      labTranslator: 'LabTranslator',
+      subtitle: 'अपनी लैब रिपोर्ट का सुरक्षित रूप से विश्लेषण करें, समय के साथ अपने स्वास्थ्य के रुझानों को ट्रैक करें, और आसानी से अपने डॉक्टर के साथ जानकारी साझा करें।',
+      terms: 'जारी रखकर, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत होते हैं।'
+    },
+    loading: {
+      step1: 'दस्तावेज़ स्कैन हो रहा है...',
+      step2: 'नैदानिक मार्करों की पहचान हो रही है...',
+      step3: 'चिकित्सा शब्दावली का अनुवाद हो रहा है...',
+      step4: 'संदर्भ श्रेणियों का विश्लेषण हो रहा है...',
+      step5: 'आपका सरल भाषा वाला डैशबोर्ड तैयार हो रहा है...',
+      pleaseWait: 'इसमें आमतौर पर 10-15 सेकंड लगते हैं। कृपया विंडो बंद न करें।'
     }
   },
   'Chinese (Simplified)': {
@@ -362,8 +495,15 @@ const messages = {
       medicalDisclaimer: '医疗免责声明',
       disclaimerText: '此应用程序使用人工智能帮助您理解检验报告。它提供信息，而不是医疗建议、诊断或治疗。关于任何健康状况，请始终寻求医生的建议。',
       errorProcessing: '处理报告时出错',
-      scanning: '正在扫描文件...',
-      extracting: '正在使用先进的人工智能提取医疗指标并翻译复杂的术语。'
+      extracting: '正在使用先进的人工智能提取医疗指标并翻译复杂的术语。',
+      previousReports: '历史报告',
+      trends: '趋势',
+      logout: '登出',
+      calendarSubtitle: '选择高亮显示的日期以查看您过去的结果。',
+      historicalTrends: '历史趋势',
+      trendsSubtitle: '随时间追踪您的生物标志物。',
+      noTrends: '暂无历史趋势。',
+      noTrendsSub: '随着时间的推移上传更多报告以查看您的进度。'
     },
     dashboard: {
       results: '您的检验结果',
@@ -412,8 +552,15 @@ const messages = {
       medicalDisclaimer: '医療に関する免責事項',
       disclaimerText: 'このアプリケーションはAIを使用して、検査結果の理解をサポートします。これは情報提供を目的としており、医学的アドバイス、診断、治療を提供するものではありません。健康状態については、常に医師にご相談ください。',
       errorProcessing: 'レポートの処理中にエラーが発生しました',
-      scanning: 'ドキュメントをスキャンしています...',
-      extracting: '高度なAIを使用して、医療マーカーを抽出し、複雑な専門用語を翻訳しています。'
+      extracting: '高度なAIを使用して、医療マーカーを抽出し、複雑な専門用語を翻訳しています。',
+      previousReports: '過去のレポート',
+      trends: 'トレンド',
+      logout: 'ログアウト',
+      calendarSubtitle: '強調表示された日付を選択して、過去の結果を表示します。',
+      historicalTrends: '過去のトレンド',
+      trendsSubtitle: '時間の経過とともにバイオマーカーを追跡します。',
+      noTrends: '履歴トレンドはまだありません。',
+      noTrendsSub: '進行状況を確認するには、時間の経過とともにさらにレポートをアップロードしてください。'
     },
     dashboard: {
       results: 'あなたの検査結果',
@@ -449,6 +596,20 @@ const messages = {
       sizeExceeded: 'ファイルサイズが5MBの制限を超えています。',
       timeout: 'AIの分析に時間がかかりすぎています。小さなファイルを使用するか、後でもう一度お試しください。',
       unexpected: 'サーバーとの通信中に予期しないエラーが発生しました。'
+    },
+    login: {
+      welcomeTo: 'へようこそ',
+      labTranslator: 'LabTranslator',
+      subtitle: '検査結果を安全に分析し、長期的な健康の傾向を追跡し、医師と簡単に洞察を共有します。',
+      terms: '続行することで、利用規約とプライバシーポリシーに同意したことになります。'
+    },
+    loading: {
+      step1: 'ドキュメントをスキャンしています...',
+      step2: '臨床マーカーを特定しています...',
+      step3: '医療用語を翻訳しています...',
+      step4: '基準範囲を分析しています...',
+      step5: 'わかりやすいダッシュボードを生成しています...',
+      pleaseWait: '通常10〜15秒かかります。ウィンドウを閉じないでください。'
     }
   }
 }

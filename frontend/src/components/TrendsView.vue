@@ -2,8 +2,11 @@
 import { computed } from 'vue'
 import { Line } from 'vue-chartjs'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js'
+import { useTheme } from '../composables/useTheme'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
+
+const { isDark } = useTheme()
 
 const props = defineProps({
   patientHistory: {
@@ -42,12 +45,12 @@ const trendCharts = computed(() => {
           datasets: [{
             label: `${name} (${info.unit})`,
             data: info.data,
-            borderColor: '#0f766e',
-            backgroundColor: 'rgba(15, 118, 110, 0.1)',
+            borderColor: isDark.value ? '#2dd4bf' : '#0f766e',
+            backgroundColor: isDark.value ? 'rgba(45, 212, 191, 0.15)' : 'rgba(15, 118, 110, 0.1)',
             tension: 0.3,
             fill: true,
-            pointBackgroundColor: '#0f766e',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: isDark.value ? '#2dd4bf' : '#0f766e',
+            pointBorderColor: isDark.value ? '#0f172a' : '#fff',
             pointBorderWidth: 2,
             pointRadius: 4,
             pointHoverRadius: 6
@@ -61,16 +64,16 @@ const trendCharts = computed(() => {
             tooltip: { 
               mode: 'index', 
               intersect: false,
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              titleColor: '#0f172a',
-              bodyColor: '#0f766e',
-              borderColor: '#e2e8f0',
+              backgroundColor: isDark.value ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+              titleColor: isDark.value ? '#f8fafc' : '#0f172a',
+              bodyColor: isDark.value ? '#2dd4bf' : '#0f766e',
+              borderColor: isDark.value ? '#334155' : '#e2e8f0',
               borderWidth: 1
             }
           },
           scales: {
-            y: { grid: { color: '#f1f5f9' }, ticks: { color: '#64748b' } },
-            x: { grid: { display: false }, ticks: { color: '#64748b' } }
+            y: { grid: { color: isDark.value ? '#334155' : '#f1f5f9' }, ticks: { color: isDark.value ? '#94a3b8' : '#64748b' } },
+            x: { grid: { display: false }, ticks: { color: isDark.value ? '#94a3b8' : '#64748b' } }
           }
         }
       })
@@ -82,18 +85,18 @@ const trendCharts = computed(() => {
 
 <template>
   <div class="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-    <header class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 mb-6">
-      <h2 class="text-2xl font-bold text-slate-900 tracking-tight font-display">Historical Trends</h2>
-      <p class="text-sm text-slate-500 font-medium mt-1">Track your biomarkers over time.</p>
+    <header class="bg-white dark:bg-slate-900 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 mb-6 transition-colors">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-display">{{ $t('app.historicalTrends') }}</h2>
+      <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">{{ $t('app.trendsSubtitle') }}</p>
     </header>
 
-    <div v-if="trendCharts.length === 0" class="text-center py-12 text-slate-500 bg-slate-50 border border-slate-200 rounded-xl">
-      <p>No historical trends available yet.</p>
-      <p class="text-sm mt-2">Upload more reports over time to see your progress.</p>
+    <div v-if="trendCharts.length === 0" class="text-center py-12 text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl transition-colors">
+      <p>{{ $t('app.noTrends') }}</p>
+      <p class="text-sm mt-2">{{ $t('app.noTrendsSub') }}</p>
     </div>
     <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <article v-for="chart in trendCharts" :key="chart.name" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-        <h4 class="text-lg font-bold text-slate-900 mb-4">{{ chart.name }}</h4>
+      <article v-for="chart in trendCharts" :key="chart.name" class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4">{{ chart.name }}</h4>
         <div class="h-64">
           <Line :data="chart.chartData" :options="chart.chartOptions" />
         </div>

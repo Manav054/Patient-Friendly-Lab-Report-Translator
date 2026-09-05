@@ -49,13 +49,20 @@ def save_report(data: dict, patient_id: str = None) -> str:
     """
     _ensure_db()
     report_id = str(uuid.uuid4())
+    report_date = data.get("report_date")
 
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
-        cursor.execute(
-            "INSERT INTO reports (id, patient_id, payload, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)",
-            (report_id, patient_id, json.dumps(data, ensure_ascii=False)),
-        )
+        if report_date:
+            cursor.execute(
+                "INSERT INTO reports (id, patient_id, payload, created_at) VALUES (?, ?, ?, ?)",
+                (report_id, patient_id, json.dumps(data, ensure_ascii=False), report_date),
+            )
+        else:
+            cursor.execute(
+                "INSERT INTO reports (id, patient_id, payload, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)",
+                (report_id, patient_id, json.dumps(data, ensure_ascii=False)),
+            )
         conn.commit()
 
     return report_id

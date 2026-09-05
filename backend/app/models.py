@@ -31,6 +31,14 @@ class LabReportExtraction(BaseModel):
         ...,
         description="True if any Personally Identifiable Information (PII) was detected and omitted.",
     )
+    report_date: str | None = Field(
+        None,
+        description="The date the lab report was generated or the sample was collected, in ISO 8601 format (YYYY-MM-DD). None if not found.",
+    )
+    overall_summary: str = Field(
+        ...,
+        description="A 2-3 sentence overall summary of the patient's health status based on the report results, highlighting key findings.",
+    )
     tests: list[TestResult] = Field(..., description="List of extracted test results.")
     suggested_physician_questions: list[str] = Field(
         ...,
