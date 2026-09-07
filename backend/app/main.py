@@ -19,3 +19,7 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix="/api")
+
+@app.get("/")
+async def root():
+    return {"status": "ok", "message": "Patient-Friendly Lab Report Translator API is running"}
